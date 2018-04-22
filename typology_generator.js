@@ -21,7 +21,7 @@ function generate_probes(phi_features){
 	// Iterate over all the possible probes
 	var max_probe_num = Math.pow(n+1, n)-1; // (n+1)^n is 1 with n 0s after it in base (n+1). Therefore (n+1)^n - 1 is n n's in base (n+1)
 	var probe_results = [];
-	for(var probe_num = 1; probe_num <= max_probe_num; probe_num++){
+	for(var probe_num = 0; probe_num <= max_probe_num; probe_num++){
 		var temp = probe_num;
 		var digit_validation = new Array(n+1);
 		var max_partitions = 0;
