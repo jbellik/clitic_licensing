@@ -1,6 +1,29 @@
 <html>
 	<head>
+		<title>PhiCC typology calculator</title>
 		<script src="typology_generator.js"></script>
+		<script>
+			window.addEventListener('load', function(){
+				var pprobes = generate_probes(person_features);
+				var pclitics = generate_clitics(person_features);
+				var pclitic_clusters = generate_clitic_clusters(pclitics, 2);
+				console.log('generating typology for person features');
+				var typ = generate_PCC_typology(pprobes, pclitic_clusters);
+				var table_list = []
+				for(var i = 0; i < typ.length; i ++){
+					table_list.push(visualize_phiCC(typ[i][1]));
+				}
+				document.getElementById("phiCC_container").innerHTML=table_list.join('');
+			});
+			
+
+		</script>
 	</head>
+	
+	<body>
+		<h1>PhiCC typology calculator</h1>
+		<h2>PhiCC visualization tables</h2>
+		<div id="phiCC_container"></div>
+	</body>
 
 </html>
